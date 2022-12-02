@@ -1,0 +1,742 @@
+
+import java.awt.Color;
+import static java.awt.Color.gray;
+import static java.awt.Color.magenta;
+import static java.awt.Color.orange;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+
+/**
+ *
+ * @author Harish
+ */
+public class TICTACTOE extends javax.swing.JFrame {
+
+    /**
+     * Creates new form TICTACTOE
+     */
+    private String turn = "O";
+    private int xcount = 0;
+    private int ocount = 0;
+    private int totalcount = 0;
+    
+    public TICTACTOE() {
+        initComponents();
+    }
+    
+    private void ChoosePlayer(){
+        if(turn.equalsIgnoreCase("X")){
+            turn="O";
+            }else{
+            turn = "X";
+        }
+    }
+    private void SetScore(){
+        xscore.setText(String.valueOf(xcount));
+        oscore.setText(String.valueOf(ocount));
+    }
+    
+    private void ResetGame(){
+        BTN1.setText("");
+        BTN2.setText("");
+        BTN3.setText("");
+        BTN4.setText("");
+        BTN5.setText("");
+        BTN6.setText("");
+        BTN7.setText("");
+        BTN8.setText("");
+        BTN9.setText("");
+        
+        BTN1.setBackground(gray);
+        BTN2.setBackground(gray);
+        BTN3.setBackground(gray);
+        BTN4.setBackground(gray);
+        BTN5.setBackground(gray);
+        BTN6.setBackground(gray);
+        BTN7.setBackground(gray);
+        BTN8.setBackground(gray);
+        BTN9.setBackground(gray);
+        BTN1.setBackground(gray);
+        
+        totalcount = 0;
+    }
+    
+    private void winningGame(){
+        
+        totalcount++;
+        
+        String btn1 = BTN1.getText();
+        String btn2 = BTN2.getText();
+        String btn3 = BTN3.getText();
+        String btn4 = BTN4.getText();
+        String btn5 = BTN5.getText();
+        String btn6 = BTN6.getText();
+        String btn7 = BTN7.getText();
+        String btn8 = BTN8.getText();
+        String btn9 = BTN9.getText();
+        
+        if((btn1 == btn2) && (btn2 == btn3) && (btn1 != "")){
+            
+            String msg;
+            if(turn.equalsIgnoreCase("O")){
+                msg = "Player O wins";
+                ocount++;
+             }else{
+                msg="Player X wins";
+                xcount++;
+            }
+            JOptionPane.showMessageDialog(this, msg , "Tic Tac Toe" , JOptionPane.INFORMATION_MESSAGE);
+            
+            BTN1.setBackground(orange);
+            BTN2.setBackground(orange);
+            BTN3.setBackground(orange);
+        }else if((btn4 == btn5) && (btn5 == btn6) && (btn4 != "")){
+        
+         String msg;
+            if(turn.equalsIgnoreCase("O")){
+                msg = "Player O wins";
+                ocount++;
+             }else{
+                msg="Player X wins";
+                xcount++;
+    }
+             JOptionPane.showMessageDialog(this, msg , "Tic Tac Toe" , JOptionPane.INFORMATION_MESSAGE);
+             
+             BTN4.setBackground(orange);
+             BTN5.setBackground(orange);
+             BTN6.setBackground(orange);
+        
+    }else if((btn7 == btn8) && (btn8 == btn9) && (btn7 != "")){
+        
+         String msg;
+            if(turn.equalsIgnoreCase("O")){
+                msg = "Player O wins";
+                ocount++;
+             }else{
+                msg="Player X wins";
+                xcount++;
+    }
+             JOptionPane.showMessageDialog(this, msg , "Tic Tac Toe" , JOptionPane.INFORMATION_MESSAGE);
+             
+             BTN7.setBackground(orange);
+             BTN8.setBackground(orange);
+             BTN9.setBackground(orange);
+    }else if((btn5 == btn2) && (btn2 == btn8) && (btn2 != "")){
+        
+         String msg;
+            if(turn.equalsIgnoreCase("O")){
+                msg = "Player O wins";
+                ocount++;
+             }else{
+                msg="Player X wins";
+                xcount++;
+    }
+             JOptionPane.showMessageDialog(this, msg , "Tic Tac Toe" , JOptionPane.INFORMATION_MESSAGE);
+             
+             BTN5.setBackground(orange);
+             BTN2.setBackground(orange);
+             BTN8.setBackground(orange);
+    }else if((btn3 == btn6) && (btn6 == btn9) && (btn3 != "")){
+        
+         String msg;
+            if(turn.equalsIgnoreCase("O")){
+                msg = "Player O wins";
+                ocount++;
+             }else{
+                msg="Player X wins";
+                xcount++;
+    }
+             JOptionPane.showMessageDialog(this, msg , "Tic Tac Toe" , JOptionPane.INFORMATION_MESSAGE);
+             
+             BTN6.setBackground(orange);
+             BTN9.setBackground(orange);
+             BTN3.setBackground(orange);
+    }else if((btn1 == btn6) && (btn1 == btn9) && (btn1 != "")){
+        
+         String msg;
+            if(turn.equalsIgnoreCase("O")){
+                msg = "Player O wins";
+                ocount++;
+             }else{
+                msg="Player X wins";
+                xcount++;
+    }
+             JOptionPane.showMessageDialog(this, msg , "Tic Tac Toe" , JOptionPane.INFORMATION_MESSAGE);
+             
+             BTN1.setBackground(orange);
+             BTN5.setBackground(orange);
+             BTN9.setBackground(orange);
+    }else if((btn3 == btn5) && (btn7 == btn3) && (btn3 != "")){
+        
+         String msg;
+            if(turn.equalsIgnoreCase("O")){
+                msg = "Player O wins";
+                ocount++;
+             }else{
+                msg="Player X wins";
+                xcount++;
+    }
+             JOptionPane.showMessageDialog(this, msg , "Tic Tac Toe" , JOptionPane.INFORMATION_MESSAGE);
+             
+             BTN5.setBackground(orange);
+             BTN7.setBackground(orange);
+             BTN3.setBackground(orange);
+    }else if(totalcount == 9){
+        
+        JOptionPane.showMessageDialog(this, "DRAW!!!" , "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+        ResetGame();
+    }
+    
+        SetScore();
+    }
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jDialog1 = new javax.swing.JDialog();
+        jDialog2 = new javax.swing.JDialog();
+        jFrame1 = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        BTN1 = new javax.swing.JButton();
+        BTN2 = new javax.swing.JButton();
+        BTN3 = new javax.swing.JButton();
+        BTN4 = new javax.swing.JButton();
+        BTN5 = new javax.swing.JButton();
+        BTN6 = new javax.swing.JButton();
+        BTN7 = new javax.swing.JButton();
+        BTN8 = new javax.swing.JButton();
+        BTN9 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        playerx = new javax.swing.JLabel();
+        playero = new javax.swing.JLabel();
+        xscore = new javax.swing.JLabel();
+        oscore = new javax.swing.JLabel();
+        rstbtn = new javax.swing.JButton();
+        extbtn = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TIC TAC TOE");
+        setBackground(new java.awt.Color(51, 153, 0));
+        setForeground(new java.awt.Color(51, 0, 153));
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("TIC TAC TOE");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+        );
+
+        BTN1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN1ActionPerformed(evt);
+            }
+        });
+
+        BTN2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN2ActionPerformed(evt);
+            }
+        });
+
+        BTN3.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN3ActionPerformed(evt);
+            }
+        });
+
+        BTN4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN4ActionPerformed(evt);
+            }
+        });
+
+        BTN5.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN5ActionPerformed(evt);
+            }
+        });
+
+        BTN6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN6ActionPerformed(evt);
+            }
+        });
+
+        BTN7.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN7ActionPerformed(evt);
+            }
+        });
+
+        BTN8.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN8ActionPerformed(evt);
+            }
+        });
+
+        BTN9.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        BTN9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BTN9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN9ActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("SCORECARD");
+
+        playerx.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        playerx.setForeground(new java.awt.Color(255, 255, 255));
+        playerx.setText(" PLAYERX :");
+
+        playero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        playero.setForeground(new java.awt.Color(255, 255, 255));
+        playero.setText(" PLAYERO :");
+
+        xscore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        xscore.setForeground(new java.awt.Color(255, 255, 255));
+        xscore.setText("0");
+
+        oscore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        oscore.setForeground(new java.awt.Color(255, 255, 255));
+        oscore.setText("0");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(playerx)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(xscore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(playero)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(oscore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(playerx)
+                    .addComponent(xscore))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(playero)
+                    .addComponent(oscore))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        rstbtn.setBackground(new java.awt.Color(51, 51, 255));
+        rstbtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rstbtn.setText("RESET");
+        rstbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rstbtnActionPerformed(evt);
+            }
+        });
+
+        extbtn.setBackground(new java.awt.Color(255, 0, 0));
+        extbtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        extbtn.setText("EXIT");
+        extbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                extbtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BTN2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BTN4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BTN5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BTN6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BTN7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(BTN8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BTN9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rstbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(extbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(62, 62, 62))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BTN2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BTN6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BTN5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BTN4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BTN9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BTN8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BTN7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 17, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rstbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(extbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void BTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN1ActionPerformed
+        // TODO add your handling code here:
+        if(BTN1.getText() != ""){
+            return;
+        }
+        BTN1.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN1.setForeground(Color.red);
+        }
+        else{
+            BTN1.setForeground(magenta);
+        }
+         winningGame();
+          ChoosePlayer();
+    }//GEN-LAST:event_BTN1ActionPerformed
+          
+         
+
+    private void rstbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rstbtnActionPerformed
+        // TODO add your handling code here:
+        ResetGame();
+    }//GEN-LAST:event_rstbtnActionPerformed
+
+    private void extbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extbtnActionPerformed
+        // TODO add your handling code here:
+        JFrame frame = new JFrame("EXIT");
+        
+        if(JOptionPane.showConfirmDialog(frame,"Confirmif you want to exit", "Tic Tac Toe" , JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
+            
+            System.exit(0);
+        }
+    }//GEN-LAST:event_extbtnActionPerformed
+
+    private void BTN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN2ActionPerformed
+        // TODO add your handling code here:
+         if(BTN2.getText() != ""){
+            return;
+        }
+        BTN2.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN2.setForeground(Color.red);
+        }
+        else{
+            BTN2.setForeground(magenta);
+        }
+         winningGame();
+            ChoosePlayer();
+    }//GEN-LAST:event_BTN2ActionPerformed
+          
+                        
+    private void BTN3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN3ActionPerformed
+        // TODO add your handling code here:
+         if(BTN3.getText() != ""){
+            return;
+        }
+        BTN3.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN3.setForeground(Color.red);
+        }
+        else{
+            BTN3.setForeground(magenta);
+        }
+         winningGame();
+            ChoosePlayer();
+    }//GEN-LAST:event_BTN3ActionPerformed
+
+    private void BTN4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN4ActionPerformed
+        // TODO add your handling code here:
+         if(BTN4.getText() != ""){
+            return;
+        }
+        BTN4.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN4.setForeground(Color.red);
+        }
+        else{
+            BTN4.setForeground(magenta);
+        }
+         winningGame();
+            ChoosePlayer();
+    }//GEN-LAST:event_BTN4ActionPerformed
+
+    private void BTN5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5ActionPerformed
+        // TODO add your handling code here:
+        if(BTN5.getText() != ""){
+            return;
+        }
+        BTN5.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN5.setForeground(Color.red);
+        }
+        else{
+            BTN5.setForeground(magenta);
+        }
+         winningGame();
+            ChoosePlayer();
+        
+    }//GEN-LAST:event_BTN5ActionPerformed
+
+    private void BTN6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN6ActionPerformed
+        // TODO add your handling code here:
+         if(BTN6.getText() != ""){
+            return;
+        }
+        BTN6.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN6.setForeground(Color.red);
+        }
+        else{
+            BTN6.setForeground(magenta);
+        }
+         winningGame();
+            ChoosePlayer();
+    }//GEN-LAST:event_BTN6ActionPerformed
+
+    private void BTN7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN7ActionPerformed
+        // TODO add your handling code here:
+         if(BTN7.getText() != ""){
+            return;
+        }
+        BTN7.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN7.setForeground(Color.red);
+        }
+        else{
+            BTN7.setForeground(magenta);
+        }
+         winningGame();
+            ChoosePlayer();
+    }//GEN-LAST:event_BTN7ActionPerformed
+
+    private void BTN8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN8ActionPerformed
+        // TODO add your handling code here:
+         if(BTN8.getText() != ""){
+            return;
+        }
+        BTN8.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN8.setForeground(Color.red);
+        }
+        else{
+            BTN8.setForeground(magenta);
+        }
+         winningGame();
+            ChoosePlayer();
+    }//GEN-LAST:event_BTN8ActionPerformed
+
+    private void BTN9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN9ActionPerformed
+        // TODO add your handling code here:
+         if(BTN9.getText() != ""){
+            return;
+        }
+        BTN9.setText(turn);
+        
+        if(turn.equalsIgnoreCase("X")){
+            BTN9.setForeground(Color.red);
+        }
+        else{
+            BTN9.setForeground(magenta);
+        }
+         winningGame();
+            ChoosePlayer();
+    }//GEN-LAST:event_BTN9ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TICTACTOE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TICTACTOE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TICTACTOE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TICTACTOE.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TICTACTOE().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTN1;
+    private javax.swing.JButton BTN2;
+    private javax.swing.JButton BTN3;
+    private javax.swing.JButton BTN4;
+    private javax.swing.JButton BTN5;
+    private javax.swing.JButton BTN6;
+    private javax.swing.JButton BTN7;
+    private javax.swing.JButton BTN8;
+    private javax.swing.JButton BTN9;
+    private javax.swing.JButton extbtn;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel oscore;
+    private javax.swing.JLabel playero;
+    private javax.swing.JLabel playerx;
+    private javax.swing.JButton rstbtn;
+    private javax.swing.JLabel xscore;
+    // End of variables declaration//GEN-END:variables
+}
